@@ -53,22 +53,22 @@ num_trees_values <- c(50, 80, 100, 200)
 # Handle missing values in training data
 train_data_rf[sapply(train_data_rf, is.numeric)] <- lapply(train_data_rf[sapply(train_data_rf, is.numeric)], function(x) {
   ifelse(is.na(x), median(x, na.rm = TRUE), x)
-})
+}) # Replace with median
 
 train_data_rf[sapply(train_data_rf, is.character)] <- lapply(train_data_rf[sapply(train_data_rf, is.character)], function(x) {
   x[is.na(x)] <- "Missing"
   return(as.factor(x))
-})
+}) # Replace with "Missing"
 
 # Handle missing values in test data
 test_features_rf[sapply(test_features_rf, is.numeric)] <- lapply(test_features_rf[sapply(test_features_rf, is.numeric)], function(x) {
   ifelse(is.na(x), median(x, na.rm = TRUE), x)
-})
+}) # Replace with median
 
 test_features_rf[sapply(test_features_rf, is.character)] <- lapply(test_features_rf[sapply(test_features_rf, is.character)], function(x) {
   x[is.na(x)] <- "Missing"
   return(as.factor(x))
-})
+}) # Replace with "Missing
 
 
 
